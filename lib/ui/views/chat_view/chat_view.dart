@@ -40,6 +40,7 @@ class ChatView extends StatelessWidget {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return ListView.separated(
+                            reverse: true,
                             separatorBuilder: (context, index) =>
                                 verticalSpaceSmall,
                             itemCount: snapshot.data.docs.length,
@@ -204,6 +205,14 @@ class _InputWidget extends HookViewModelWidget<ChatViewModel> {
       children: <Widget>[
         Expanded(
           child: TextField(
+            onSubmitted: (value) {
+              chat.body = value;
+              chat.sentBy = model.currentUser;
+              chat.time = Timestamp.now();
+
+              model.addChat(chat);
+              message.clear();
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(

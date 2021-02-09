@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(fontFamily: 'Raleway'),
-        home: ChatView(),
-        // initialRoute: auto_router.Routes.startUpView,
+        // home: ChatView(),
+        initialRoute: auto_router.Routes.startUpView,
         onGenerateRoute: auto_router.Router().onGenerateRoute,
         navigatorKey: StackedService.navigatorKey);
   }

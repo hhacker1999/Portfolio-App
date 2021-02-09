@@ -50,7 +50,7 @@ class LoginView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     BusyButton(
-                      busy: true,
+                      busy: model.busyState,
                       title: 'Login',
                       onPressed: () {
                         model.logIN(

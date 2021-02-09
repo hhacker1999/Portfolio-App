@@ -8,7 +8,12 @@ class Chatservice {
       FirebaseFirestore.instance.collection('chats');
 
   Stream getChatList() {
-    return _collectionReference.snapshots();
+    return _collectionReference
+        .orderBy(
+          'time',
+          descending: true,
+        )
+        .snapshots();
   }
 
   addUser(Chat chat) {

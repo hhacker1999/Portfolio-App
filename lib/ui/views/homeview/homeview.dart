@@ -41,9 +41,7 @@ class HomeView extends StatelessWidget {
                           text: model.title1,
                           media: 'assets/images/19362653.jpg',
                         ),
-                        Page2(
-                          text: model.title2,
-                        ),
+                        Page2(),
                         Page3(
                           text: model.title3,
                         ),

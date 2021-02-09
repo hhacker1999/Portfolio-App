@@ -29,7 +29,6 @@ class SignUpView extends StatelessWidget {
                 ),
               ),
               verticalSpaceLarge,
-              
               InputField(
                 placeholder: 'Email',
                 controller: emailController,
@@ -51,7 +50,8 @@ class SignUpView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  BusyButton(busy: true,
+                  BusyButton(
+                    busy: model.busyState,
                     title: 'Sign Up',
                     onPressed: () {
                       model.signUp(

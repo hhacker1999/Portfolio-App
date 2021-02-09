@@ -1,14 +1,15 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:setup_app/ui/views/homeview/homeview_model.dart';
+import 'package:stacked/stacked.dart';
 
-class Page2 extends StatelessWidget {
-  final String text;
+class Page2 extends ViewModelWidget<HomeViewModel> {
   final String media;
-  Page2({this.text, this.media});
+  Page2({this.media});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, model) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -16,15 +17,17 @@ class Page2 extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
-            text,
+            model.title2,
             style: TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 30.0,
             ),
           ),
         ),
-        InkWell(
-          onTap: () {},
+        GestureDetector(
+          onTap: () {
+            model.navigateToNewsView();
+          },
           child: Container(
             width: 160.0,
             decoration: BoxDecoration(
